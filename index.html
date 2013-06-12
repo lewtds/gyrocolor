@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<div id="ori"></div>
+
+
+
+<script type="text/javascript">
+	window.addEventListener('deviceorientation', function(e) {
+		// var h = parseInt(e.alpha)*255/360;
+		// var s = parseInt(e.beta)*255/360;
+		// var l = parseInt(e.gamma)*255/360;
+		// document.body.style.backgroundColor = 'hsl('+ h + ',' + s + ',' + 50 +')';
+		ori = document.getElementById("ori");
+		ori.innerHTML = e.alpha.toFixed(2) + ":" + e.beta.toFixed(2) + ":" + e.gamma.toFixed(2);
+
+		var h = e.alpha;
+		var s = ((e.beta + 180) / 360) * 100;
+		var l = ((e.gamma + 90) / 180) * 100;
+
+		document.body.style.backgroundColor = "hsl(" + h + "," + s + "%," + l + "%)";
+	});
+</script>
+</body>
+</html>
